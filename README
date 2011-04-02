@@ -1,1 +1,6 @@
 MARC21 Utilities
+
+1. MARC21 Validation 
+   XSL stylesheets to validate MARC21 bibliographic and authority records. 
+   The stylesheets are generated automatically as a result of parsing
+   Library of Congress MARC Format pages (http://www.loc.gov/marc)
