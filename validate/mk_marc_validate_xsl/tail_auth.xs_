@@ -1,0 +1,22 @@
+<!-- -->
+  <xsl:template match="marc:datafield[starts-with(@tag,'09')]">
+  </xsl:template>
+  <xsl:template match="marc:datafield[starts-with(@tag,'9')]">
+  </xsl:template>
+
+  <xsl:template match="marc:datafield">
+    <warning type="UnknownTag">
+      <xsl:call-template name="controlNumber"/>
+      <tag>
+        <xsl:value-of select="@tag"/>
+      </tag>
+    </warning>
+  </xsl:template>
+  <xsl:template name="controlNumber">
+    <xsl:if test="../marc:controlfield[@tag=001]">
+      <xsl:attribute name="controlNumber">
+        <xsl:value-of select="../marc:controlfield[@tag=001]"/>
+      </xsl:attribute>
+    </xsl:if>
+  </xsl:template>
+</xsl:stylesheet>

@@ -1,0 +1,15 @@
+
+<!-- -->
+    <xsl:apply-templates select="marc:datafield"/>
+    <xsl:apply-templates select="marc:controlfield"/>
+  </xsl:template>
+  <xsl:template match="marc:controlfield[@tag=001]">
+  </xsl:template>
+  <xsl:template match="marc:controlfield[@tag=003]">
+  </xsl:template>
+  <xsl:template match="marc:controlfield[@tag=005]">
+  </xsl:template>
+  <xsl:template match="marc:controlfield[@tag=008]">
+  </xsl:template>
+<!-- -->
+
