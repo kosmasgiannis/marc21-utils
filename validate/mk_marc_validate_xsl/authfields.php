@@ -1,4 +1,9 @@
 <?php
+function tsetup_scf_array() {
+global $scf;
+  $scf[] = 'http://www.loc.gov/marc/authority/ad682.html';
+}
+
 function setup_scf_array() {
 global $scf;
 
@@ -111,6 +116,5 @@ global $scf;
   $scf[] = 'http://www.loc.gov/marc/authority/ad785.html';
   $scf[] = 'http://www.loc.gov/marc/authority/ad788.html';
   $scf[] = 'http://www.loc.gov/marc/authority/ad856.html';
-  $scf[] = 'http://www.loc.gov/marc/authority/ad880.html';
 }
 ?>

@@ -1,4 +1,9 @@
 <?php
+function tsetup_scf_array() {
+  global $scf;
+  $scf[] = 'http://www.loc.gov/marc/bibliographic/bd100.html';
+  $scf[] = 'http://www.loc.gov/marc/bibliographic/bd110.html';
+}
 
 function setup_scf_array() {
   global $scf;
