@@ -1,0 +1,9 @@
+reg.tbl
+
+a | r
+b | n
+u | u
+y | x
+0x7c | 0x7c
+
+#DEFAULT | 0X20

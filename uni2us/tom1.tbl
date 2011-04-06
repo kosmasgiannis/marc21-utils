@@ -1,0 +1,23 @@
+tom1.tbl
+
+a | b
+b | c
+c | i
+d | a
+e | d
+f | e
+g | r
+h | y
+i | s
+j | p
+k | o
+l | l
+m | w
+n | g
+o | v
+p | h
+r | n
+z | 0x20
+0x7c | 0x7c
+
+#DEFAULT | 0X20

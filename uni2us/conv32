@@ -1,0 +1,3 @@
+#!/bin/bash
+echo $1;
+'/c/Program Files/yaz/bin/yaz-marcdump.exe' -o marcxml "$1" > "$1.xml"

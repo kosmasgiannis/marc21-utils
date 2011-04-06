@@ -1,0 +1,22 @@
+frec.tbl
+
+a | d
+b | c
+c | w
+d | e
+e | s
+f | m
+g | b
+h | q
+i | t
+j | f
+k | a
+l | g
+m | h
+n | i
+o | j
+u | u
+y | 0x20
+z | z
+
+#DEFAULT | 0X20

@@ -1,0 +1,646 @@
+UNIMARC
+UNIMARC to USMARC Bibliographic - Books - Draft
+
+//#define version 300
+// Record label pos 1-5 (rec length) generated nothing to do
+000   /6/	| 000        /6/	| Table ('recordstatus.tbl')
+000   /7/	| 000        /7/	| Table ('typeofrec.tbl')
+000   /8/	| 000        /8/	| Table ('biblvl.tbl')
+000   /9-10/	| 000        /9-10/	| ' a'
+// nothing to do
+000   /11-12/	| 000        /11-12/	| '22'
+000   /13-17/	| 000        /13-17/	| S
+000   /18/	| 000        /18/	| S
+000   /19/	| 000        /19/	| ' '
+000   /20/	| 000        /20/	| S
+// nothing to do
+000   /21-24/	| 000        /21-24/	| '4500'
+// Transfers 001 into 091 (Previous control  no.) Target system generates new 001
+001	| 001			| + S
+003	| 003			| + S
+005	| 005			| + S
+//001	| 005			| Year+Month+Day+Hour+Minute+Second+'.0'
+// When output record will be built, this field will be sorted Each 010 creates a new 020
+//010	| 020(n)	| Sort('abcdz') //Not necessary ?
+//010	| 020(n)I1	|
+//010	| 020(n)I2	|
+010$a	| 020(n)$a	| If ($a !='-') Then Delete('-')
+010$b	| 020(n)$a	| CDout +' (' +S+ ')'
+// nothing to do
+010$d	| 020(n)$c      |
+// nothing to do
+010$z	| 020(n)$z      | Delete('-')
+// Only the first 011 will be converted
+011	| 022(n)I1	|
+011	| 022(n)I2	|
+011$a	| 022(n)$a      | Delete('-')
+// nothing to do
+011$y	| 022(n)$z      |
+// nothing to do
+011$z	| 022(n)$y      |
+// Indicator 1 is 0
+011	| 022        | Sort(ayz)
+//American national bibliography number to 010
+020	| 010(n)I1	| If ($a='US')  Then ' '
+020	| 010(n)I2	| If ($a='US') Then ' '
+020$b	| 010$a	| If ($a='US') Then S
+//Other national bibliography numbers to 015
+020	| 015(n)I1	| If ($a!='US') Then ' '
+020	| 015(n)I2	| If ($a!='US') Then ' '
+020$b	| 015$a	| If ($a!='US') Then S
+071I1	| 028(n)I1	| S
+071I2	| 028(n)I2	| If (S='0') Then '3' Else '1'
+071$a	| 028(n)$a	| 
+071$b	| 028(n)$b	| 
+// Indicator 1 and
+100		| 008I1	| ''
+// Indicator 2 are empty
+100		| 008I2	| ''
+// Skip century
+100$a/3-8/	| 008/1-6/	| S // From(3)
+// nothing to do as described in ANNEX B.1
+100$a/9/	| 008/7/ | Table ('date.tbl')
+100$a/10-13/	| 008/8-11/ |
+100$a/14-17/	| 008/12-15/ | 
+100$a/18/	| 008/23/ | Table ('aud.tbl')
+100$a/21/	| 008/29/ | Table ('gov.tbl')
+//100$a/23-25/	| 040$b	| S
+100$a/23-25/	| 008/36-38/ | 
+100$a/22/	| 008/39/ | ' '
+
+// First $a goes in 008
+101$a(n=1)	| 008/36-38/	| If (n=1) Then S
+// 041 is only created
+101I1	| 041I1	| If (I1!=0) Then '1' Else '0'
+101I2	| 041I2	| ' '
+// Two first 101$a in 041$a
+//101$a	| 041$a	| If (n=2) Then 101$a(1)+S
+// any subsequent $a merged in 041$a
+//101$a	| 041$a	| If (n>=2) Then S
+101$a	| 041$a	| 
+101$b	| 041$h	|
+101$c	| 041$h	|
+101$d	| 041$b	|
+101$e	| 041$f	|
+101$f	| 041$a	| + S
+//101$g	| 041$a	| + S
+101$h	| 041$e	|
+101$i	| 041$g	|
+101$j	| 041$b	|
+// First $a in 008
+102$a	| 008/16-17/ | Sto(1);len(S); Sto(0);Mem(0); If (S=2) Then Mem(1); Table ('iso2uk.tbl')
+102$a	| 044I1	| If (n>1) Then 0
+102$a	| 044I2	| If (n>1) Then 0
+102$a	| 044$a	| If (n=2) Then 102$a(1)+S
+102$a	| 044$a	| + If (n>2) Then S
+105$a/1-4/	| 008/19-22/ | Table ('illustra.tbl')
+105$a/5-8/	| 008/25-28/ | Table ('frm.tbl')
+105$a/9/	| 008/30/ |
+105$a/10/	| 008/31/ |
+105$a/11/	| 008/32/ |
+105$a/12/	| 008/34/ | Table ('lit.tbl')
+105$a/13/	| 008/35/ | If (S='y') Then ' ' Else S
+106$a/1-4/	| 008/24/ | Table ('gmd.tbl')
+
+110$a/1/	| 008/22/ | Table ('ser.tbl')
+110$a/2/	| 008/19/ | Table ('frec.tbl')
+110$a/3/	| 008/20/ | Table ('reg.tbl')
+110$a/4/	| 008/25/ | Table ('tom1.tbl')
+110$a/5/	| 008/26/ | Table ('tom1.tbl')
+110$a/6/	| 008/27/ | Table ('tom1.tbl')
+110$a/7/	| 008/28/ | Table ('tom1.tbl')
+110$a/8/	| 008/30/ | S
+110$a/9/	| 008/31/ | ' '
+110$a/10/	| 008/32/ | ' '
+110$a/11/	| 008/33/ | ' '
+
+122I1	| 045I1	| If (I1 = '1') Then '0' Else S
+122I2	| 045I2	|
+122$a	| 045$b	|
+200I1	| 245I1	| S
+200$a	| 245I2	| If (n=1) Then Sto(0); Bfirst('\00\88'); Sto(1);Mem(0); Bfirst('\00\89'); S-Mem(1);S-1;if ((S>9) Or (S<0)) then '0' Else S
+200$a	| 245$a	| If (n=1) Then Delete('\00\88'); Delete('\00\89');
+200$a	| 245$b	| If (n>1) Then Delete('\00\88'); Delete('\00\89');
+200$b	| 245$h	|
+200$e	| 245$b	|
+200$c	| 245$b	| 
+200$d	| 245$b	| // If CDOut $b exists, +; If there is more than one UNI $a or UNI $c exists
+200$f	| 245$c	| 
+// Subsequent $es created Searches next $i until next $h If found merges it with $h+', ' else only $h in $l
+200$g	| 245$c	|  + '; ' + S
+// Searches last $h until last $i If not found then create a new $l containing only $i If found there is nothing to do, the preceding rule has already created the subfield
+200$h	| 245$n(no)	| sto(0); Next($i,$h);If (S='') Then Mem(0) Else Mem(0)+', '+S
+200$i	| 245$l(no)	| sto(0); Last($h,$i);If (S='') Then Mem(0)
+// 205 is repeatable; 250 is not
+205I1	| 250I1	| ' '
+205I2	| 250I2	| ' '
+205$a	| 250$a	| 
+205$b	| 250$b	| 
+205$d	| 250$b	| // punctuation goes in $a if the only $b else S
+205$f	| 250$b	| // punctuation goes in $a if the only $b else ' / ' + S
+205$g	| 250$b	| '; ' + S
+//kosmas
+207I1	| 362I2	| 
+207I2	| 362I1	| 
+207$a	| 362$a	| 
+207$v	| 362$z	| 
+210	| 260I1	| ' '
+210	| 260I2	| ' '
+210$a	| 260$a	| 
+210$b	| 260	| + ' ('+S+')'
+210$c	| 260$b	| 
+210$d	| 260$c	| 
+210$e(1)	| 260$e	| 
+210$f	| 	| + If (ns=1) Then ', '+S
+210$g	| 260$f	| 
+210$h	| 260$g	| 
+215	| 300(n)I1	| ' '
+215	| 300(n)I2	| ' '
+215$a	| 300(n)$a	|
+215$c	| 300$b	| 
+215$d	| 300(n)$c	| 
+215$e	| 300(n)$e	| 
+// If 225I1=0 or 1
+225I1	| 490(n)I1	| If (S=0) Then 1
+// 225I1=1 then creates 490
+225I1	| 490I1	| If (S=1) Then 0
+225I1	| 490I1	| If (S=2) Then 0
+225I1	| 490I2	| ' '
+225$a	| 490$a	| 
+225$d	| 490$a	| +' = '+S
+225$e	| 490$a	| +' : '+S
+225$f	| 490$a	| +' / '+S
+225$h	| 490$a	| +'. '+S
+225$i	| 490$l	| +S
+225$v	| 490$v	| 
+225$x	| 490$x	| S
+// Indicator 1 is 0
+300	| 500(n)I1	| ' '
+// Indicator 2 is 0
+300	| 500(n)I2	| ' '
+300$a	| 500$a        |
+//kosmas
+301I1	| 500I1	| 
+301I2	| 500I2	| 
+301	| 500	| 
+302I1	| 500I1	| 
+302I2	| 500I2	| 
+302	| 500	| 
+303I1	| 500I1	| 
+303I2	| 500I2	| 
+303	| 500	| 
+304I1	| 500I1	| 
+304I2	| 500I2	| 
+304	| 500	| 
+305I1	| 500I1	| 
+305I2	| 500I2	| 
+305	| 500	| 
+306I1	| 500I1	| 
+306I2	| 500I2	| 
+306	| 500	| 
+307I1	| 500I1	| 
+307I2	| 500I2	| 
+307	| 500	| 
+308I1	| 500I1	| 
+308I2	| 500I2	| 
+308	| 500	| 
+//kosmas
+310I1	| 500I1	| 
+310I2	| 500I2	| 
+310	| 500	| 
+//kosmas
+311I1	| 500I1	| 
+311I2	| 500I2	| 
+311	| 500	| 
+//kosmas
+312I1	| 500I1	| 
+312I2	| 500I2	| 
+312	| 500	| 
+//kosmas
+314I1	| 500I1	| 
+314I2	| 500I2	| 
+314	| 500	| 
+//kosmas
+320I1	| 504I1	| 
+320I2	| 504I2	| 
+320	| 504	| 
+//kosmas
+325I1	| 533I1	| 
+325I2	| 533I2	| 
+325$a	| 533$n	| 
+//kosmas only for Globo data mitilini
+326I1	| 310I1	| 
+326I2	| 310I2	| 
+326	| 310	| 
+//kosmas
+327I1	| 505(n)I1	| If (I1=0) Then '1'
+327I1	| 505(n)I1	| If (I1=1) Then '0'
+327I2	| 505(n)I2	| 
+327$a	| 505$a         |
+//kosmas
+330I1	| 520I1	| 
+330I2	| 520I2	| 
+330$a	| 520$a	| 
+//kosmas
+333I1	| 521I1	| 
+333I2	| 521I2	| 
+333$a	| 521$a	| 
+
+410I1	| 760I2	| ' '
+410I2	| 760I1	| If (I2='1') Then '0'
+410I2	| 760I1	| If (I2='0') Then '1'
+410$3	| 760$w	| 
+410$t	| 760$t	| Delete('\00\88'); Delete('\00\89');
+410$a	| 760$a	| Delete('\00\88'); Delete('\00\89');
+410$v	| 760$g	| 
+410$x	| 760$x	| 
+410$y	| 760$z	| 
+
+455I1   | 787I2 | '8'
+455I2   | 787I1 | If (I2='1') Then '0'
+455I2   | 787I1 | If (I2='0') Then '1'
+455$3   | 787$w |
+455$t   | 787$t | Delete('\00\88'); Delete('\00\89');
+455$a   | 787$t | Delete('\00\88'); Delete('\00\89');
+455$v   | 787$g |
+455$x   | 787$x |
+455$y   | 787$z |
+455$e   | 787$n |
+455$f   | 787$a |
+
+462I1   | 774I2 | ' '
+462I2   | 774I1 | If (I2='1') Then '0'
+462I2   | 774I1 | If (I2='0') Then '1'
+462$3   | 774$w |
+462$t   | 774$t | Delete('\00\88'); Delete('\00\89');
+462$a   | 774$t | Delete('\00\88'); Delete('\00\89');
+462$v   | 774$g |
+462$x   | 774$x |
+462$y   | 774$z |
+462$e   | 774$n |
+462$f   | 774$a |
+462$h   | 774$g |
+
+463I1   | 773I2 | ' '
+463I2   | 773I1 | If (I2='1') Then '0'
+463I2   | 773I1 | If (I2='0') Then '1'
+463$3   | 773$w |
+463$t   | 773$t | Delete('\00\88'); Delete('\00\89');
+463$a   | 773$t | Delete('\00\88'); Delete('\00\89');
+463$v   | 773$g |
+463$x   | 773$x |
+463$y   | 773$z |
+463$e   | 773$n |
+463$f   | 773$a |
+463$h   | 773$g |
+463$g   | 773$n |
+
+//410$1	| 840(no)I1	| If (S=200) Then Last($1);If ((S='') or ((S!=700) and (S!=710) and (S!=720))) Then 0
+//410$1	| 840(no)I2	| If (S=200) Then Last($1);If ((S='') or ((S!=700) and (S!=710) and (S!=720))) Then 0
+//410$1	| 840(no)$a	| If (S=200) Then Sto(0); Last($1);If ((S='') or ((S!=700) and (S!=710) and (S!=720))) Then Mem(0)
+//410$1	| 800(no)I1	| If (S=700) Then 0
+//410$1	| 800(no)I2	| If (S=700) Then 0
+//410$1	| 800(no)$a	| If (S=700) Then Delete(',')
+//410$1	| 800(no)$t	| If (S=200) Then Sto(0); Last($1);If (S=700) Then Mem(0);
+//410$1	| 810(no)I1	| If (S=710) Then 0
+//410$1	| 810(no)I2	| If (S=710) Then 0
+//410$1	| 810(no)$a	| If (S=710) Then Delete(',')
+//410$1	| 810(no)$t	| If (S=200) Then Sto(0); Last($1);If (S=710) Then Mem(0);
+//410$1	| 820(no)I1	| If (S=720) Then 0
+//410$1	| 820(no)I2	| If (S=720) Then 0
+//410$1	| 820(no)$a	| If (S=720) Then Delete(',')
+//410$1	| 820(no)$t	| If (S=200) Then Sto(0); Last($1);If (S=720) Then Mem(0);
+
+//Strictly for Globo xios data
+500I1	| 240I1	|
+500$a	| 240I2	| If (n=1) Then Sto(0); Bfirst('\00\88'); Sto(1);Mem(0); Bfirst('\00\89'); S-Mem(1);S-1;if ((S<0) Or (S>9)) then 0 Else S
+500$a	| 240$a	|
+
+510I1	| 246I1	|
+510I2	| 246I2	| '1'
+510$a	| 246$a	|
+510$e	| 246$b	|
+510$h	| 246$n	|
+510$i	| 246$p	|
+510$j	| 246$f	|
+510$n	| 246$g	|
+
+516I1	| 246I1	|
+516I2	| 246I2	| '8'
+516$a	| 246$a	|
+516$e	| 246$b	|
+516$h	| 246$n	|
+516$i	| 246$p	|
+516$j	| 246$f	|
+516$n	| 246$g	|
+
+517I1	| 246I1	|
+517I2	| 246I2	| '3'
+517$a	| 246$a	|
+517$e	| 246$b	|
+517$h	| 246$n	|
+517$i	| 246$p	|
+517$j	| 246$f	|
+517$n	| 246$g	|
+
+//500I1	| 240I1	| If (n=1 and S=1 andI2=0) Then 4
+//500I1	| 240I1	| If (n=1 and S=1 andI2=1) Then 3
+//500I1	| 240I1	| If (n=1 and S=0 and Exists(@710)) Then 0
+//500I1	| 240I1	| If (n=1 and S=0 and Not Exists(@710)) Then 1
+//500$a	| 240I2	| If (n=1) Then BFirst('|'); If (S>9) Then 9 Else S
+//// Field 500 is repeatable
+//500$a	| 240$a	| If (n=1) Then S
+//500$a	| 740(no)$a	| If (n>1) Then S
+//500$a	| 740$a	| 
+//500$h	| 240$s(n)	| Sto(0);If (I1!=2) Then Next($i,$h);If (S='') Then Mem(0) Else Mem(0)+', '+S
+//500$i	| 240$s(n)	| Sto(0); If (I1!=2) Then Last($h,$i);If (S='') Then Mem(0)
+//500$k	| 240$o	| If (n=1) Then S
+//500$k	| 740(no)$o	| If (n>1) Then S
+//500$l	| 240$p(n)	| S
+//500$m	| 240$r	| If (n=1) Then S
+//500$m	| 740(no)$r	| If (n>1) Then S
+//500$n	| 240$j(n)	| 
+//500$q	| 240$q(n)	| 
+//500$r	| 240$d	| If (n=1) Then S
+//500$r	| 740(no)$d	| If (n>1) Then S
+//500$s	| 240$f	| If (n=1) Then S
+//500$s	| 740(no)$f	| If (n>1) Then S
+//500$u	| 240$h	| If (n=1) Then S
+//500$u	| 740(no)$h	| If (n>1) Then S
+//500$w	| 240$k	| If (n=1) Then S
+//500$w	| 740(no)$k	| If (n>1) Then S
+530I1	| 222I1	| ' '
+530$a	| 222I2	| If (n=1) Then Sto(0); Bfirst('\00\88'); Sto(1);Mem(0); Bfirst('\00\89'); S-Mem(1);S-1;if ((S<0)  Or (S>9)) then 0 Else S
+// Take only the $a of first 530 for example
+530$a	| 222$a	| If (n=1) Then S
+// Take only the $b of first 530 for example
+530$b	| 222$b	| If (n=1) Then S
+// kosmas
+// Inicator 1 = ' ' 
+600I2	| 600I1	| S
+//Indicator 2 
+600I1	| 600I2	| If ($2='lc')  Then '0'
+600I1	| 600I2	| If ($2='lc')  Then '0'
+600I1	| 600I2	| If ($2='lcch')  Then '1'
+600I1	| 600I2	| If ($2='mesh')  Then '2'
+600I1	| 600I2	| If ($2='nal')  Then '3'
+600I1	| 600I2	| If ($2='other')  Then '4'
+600I1	| 600I2	| If ($2='cae')  Then '5'
+600I1	| 600I2	| If ($2='caf')  Then '6'
+600I1	| 600I2	| If (($2!='lc') And ($2!='lcsh') And ($2!='mesh') And ($2!='nal') And ($2!='other') And ($2!='cae') And ($2!='caf'))  Then '7'
+600I1	| 600I2	| If (Not Exists($2))  Then '4'
+600$a	| 600$a	| S; Delete('.', At Ending)
+600$b	| 600$a	| + ' - '+ S ; Delete('.', At Ending)
+600$c	| 600$c	| S
+600$d	| 600$b	| S
+600$f	| 600$d	| S
+600$x	| 600$x	| S
+600$z	| 600$y	| S
+600$y	| 600$z	| S
+
+//kosmas
+601I1 	| 610I2	| If (I1=0) Then '4'
+601I2   | 610I1 | If (I1=0) Then S
+601$a   | 610$a | If (I1=0) Then S
+601$b   | 610$e	| If (I1=0) Then S
+601$e   | 610$c | If (I1=0) Then S
+601$f   | 610$d | If (I1=0) Then S
+//601$a   | 610$a | If (I1=0) Then Delete(','); Delete('.')
+//601$b   | 610$b(n)      | If (I1=0) Then S
+601$c   | 610$a(n)      | + If (I1=0) Then S
+//601$d   | 610$i | + If (I1=0) Then S
+601$x   | 610$x | If (I1=0) Then S
+601$y   | 610$z | If (I1=0) Then S
+601$z   | 610$y | If (I1=0) Then S
+
+601I1   | 611I2 | If (I1=1) Then ' '
+601I2   | 611I1 | If (I1=1) Then S
+601$a   | 611$a | If (I1=1) Then S
+601$b   | 611$e	| If (I1=1) Then S
+601$e   | 611$c | If (I1=1) Then S
+601$f   | 611$d | If (I1=1) Then S
+//601$a   | 611$a | If (I1=1) Then Delete(','); Delete('.')
+//601$b   | 611$c(n)      | If (I1=1) Then S
+601$c   | 611$a(n)      | + If (I1=1) Then S
+//601$d   | 611$i | + If (I1=1) Then S
+601$x   | 611$x | If (I1=1) Then S
+601$y   | 611$z | If (I1=1) Then S
+601$z   | 611$y | If (I1=1) Then S
+//Kosmas
+602I1	| 600(n)I1	| ' '
+602I2	| 600(n)I2	| '3'
+602$a	| 600(n)$a	|
+// kosmas
+// Inicator 1 = ' ' 
+606I1	| 650I1	| ' '
+//Indicator 2 
+606I2	| 650I2	| If ($2='lc')  Then '0'
+606I2	| 650I2	| If ($2='lc')  Then '0'
+606I2	| 650I2	| If ($2='lcch')  Then '1'
+606I2	| 650I2	| If ($2='mesh')  Then '2'
+606I2	| 650I2	| If ($2='nal')  Then '3'
+606I2	| 650I2	| If ($2='other')  Then '4'
+606I2	| 650I2	| If ($2='cae')  Then '5'
+606I2	| 650I2	| If ($2='caf')  Then '6'
+606I2	| 650I2	| If (($2!='lc') And ($2!='lcsh') And ($2!='mesh') And ($2!='nal') And ($2!='other') And ($2!='cae') And ($2!='caf'))  Then '7'
+606I2	| 650I2	| If (Not Exists($2))  Then '4'
+606$a	| 650$a	| S; Delete('.', At Ending)
+606$b	| 650$a	| + ' - ' + S ; Delete('.', At Ending)
+606$x	| 650$x	| S
+606$z	| 650$y	| S
+606$y	| 650$z	| S
+
+// kosmas
+// Inicator 1 = ' ' 
+607I1	| 651(n)I1	| ' '
+//Indicator 2 
+607  	| 651(n)I2	| If ($2='lc')  Then '0'
+607I2	| 651(n)I2	| If ($2='lc')  Then '0'
+607I2	| 651(n)I2	| If ($2='lcch')  Then '1'
+607I2	| 651(n)I2	| If ($2='mesh')  Then '2'
+607I2	| 651(n)I2	| If ($2='nal')  Then '3'
+607I2	| 651(n)I2	| If ($2='other')  Then '4'
+607I2	| 651(n)I2	| If ($2='cae')  Then '5'
+607I2	| 651(n)I2	| If ($2='caf')  Then '6'
+607I2	| 651(n)I2	| If (($2!='lc') And ($2!='lcsh') And ($2!='mesh') And ($2!='nal') And ($2!='other') And ($2!='cae') And ($2!='caf'))  Then '7'
+607I2	| 651(n)I2	| If (Not Exists($2))  Then '4'
+607$a	| 651(n)$a	| S; Delete('.', At Ending)
+607$b	| 651(n)$a	| + ' - ' + S ; Delete('.', At Ending)
+607$x	| 651(n)$x	| S
+607$z	| 651(n)$y	| S
+607$y	| 651(n)$z	| S
+
+// Indicator 1 is 0
+675	| 080(n)I1	| ' '
+// Indicator 2 is 0
+675	| 080(n)I2	| ' '
+675$a	| 080$a	| 
+// Indicator 1 is 0 if full edition, 1 if abridged edition
+676	| 082(nt)I1	| 0
+676$v	| 082(nt)I1	| If (BLast('a')!=0) Then 1 Else 0
+676	| 082(nt)I2	| 4
+676$a	| 082$a	| 
+676$v	| 082$2	| 
+680I1	| 050I1	| ' '
+680I2	| 050I2	| '4'
+680$a	| 050$a	|
+680$b	| 050$b	|
+//kosmas
+686I1	| 084I1	|
+686I2	| 084I2	|
+686	| 084	|
+
+700I1	| 100I2	| ' '
+700I2	| 100I1	| 
+700$a	| 100$a	| 
+700$b	| 100$a	| + ', ' + S
+700$c	| 100$c	| 
+700$d	| 100$g	| S // Roman numerals
+700$f	| 100$d	| // dates
+700$g	| 100$q	| +'('+S+')'
+700$4	| 100$4	| To(3);Table ('table2.tbl')
+701$x	| 700$x	| // it is invalid but convertit anyway, globo data...
+701$y	| 700$z	| // it is invalid but convertit anyway, globo data...
+701$z	| 700$y	| // it is invalid but convertit anyway, globo data...
+
+701I1	| 700I2	| ' '
+701I2	| 700I1	| 
+701$a	| 700$a	| 
+701$b	| 700$a	| + ', ' + S
+701$c	| 700$c	| 
+701$d	| 700$g	| S // Roman numerals
+701$f	| 700$d	| // dates
+701$z	| 700$d	| // dates (globo data)
+701$g	| 700$q	| +'('+S+')'
+701$4	| 700$4	| To(3);Table ('table2.tbl')
+701$x	| 700$x	| // it is invalid but convertit anyway, globo data...
+
+702I1	| 700I2	| ' '
+702I2	| 700I1	| 
+702$a	| 700$a	| 
+702$b	| 700$a	| + ', ' + S
+702$c	| 700$c	| 
+702$d	| 700$g	| S // Roman numerals
+702$f	| 700$d	| // dates
+702$z	| 700$d	| // dates (globo data)
+702$g	| 700$q	| +'('+S+')'
+702$4	| 700$4	| To(3);Table ('table2.tbl')
+
+
+710I1	| 110I2	| If (I1=0) Then S
+710I2	| 110I1	| If (I1=0) Then ' '
+710$a	| 110$a	| If (I1=0) Then S
+710$b	| 110$b	| If (I1=0) Then S
+710$c	| 110	| If (I1=0) Then ' ('+S+')'
+710$d	| 110$n	| + If (I1=0) Then S
+710$e	| 110$c	| If (I1=0) Then S
+710$f	| 110$d	| If (I1=0) Then S
+710$4	| 110$4	| If (I1=0) Then To(3);If (I1=0)Then Table ('table2.tbl')
+710$x	| 110$x	| // it is invalid but convertit anyway, globo data...
+710$y	| 110$z	| // it is invalid but convertit anyway, globo data...
+710$z	| 110$y	| // it is invalid but convertit anyway, globo data...
+
+711	| 710	| If (I1=0) Then Sort('ncf')
+711I1	| 710I2	| If (I1=0) Then ' '
+711I2	| 710I1	| If (I1=0) Then S
+711$a	| 710$a	| If (I1=0) Then S
+711$b	| 710$e	| If (I1=0) Then S
+711$c	| 710	| If (I1=0) Then ' ('+S+')'
+711$d	| 710$n	| + If (I1=0) Then S
+711$e	| 710$c	| If (I1=0) Then S
+711$f	| 710$d	| If (I1=0) Then S
+711$4	| 710$4	| If (I1=0) Then To(3);If (I1=0) Then Table ('table2.tbl')
+
+712	| 710	| If (I1=0) Then Sort('ncf')
+712I1	| 710I2	| If (I1=0) Then ' '
+712I2	| 710I1	| If (I1=0) Then S
+712$a	| 710$a	| If (I1=0) Then S
+712$b	| 710$e	| If (I1=0) Then S
+712$c	| 710	| If (I1=0) Then ' ('+S+')'
+712$d	| 710$n	| + If (I1=0) Then S
+712$e	| 710$c	| If (I1=0) Then S
+712$f	| 710$d	| If (I1=0) Then S
+712$h	| 710	| If (I1=0) Then ' '+S
+712$4	| 710$4	| If (I1=0) Then To(3);If (I1=0) Then Table ('table2.tbl')
+
+//710	| 110	| If (I1=0) Then Sort('ncf')
+//710I1	| 111I1	| If (S=1) Then 0
+//710I1	| 111I2	| If (S=1) Then 0
+//710$a	| 111$a	| If (I1=1) Then Delete(',') 
+//710$b	| 111$c(no)	| If (I1=1) Then S
+//710$c	| 111$e(no)	| If (I1=1) Then S
+//710$d	| 111$n	| + If (I1=1) Then S
+//710$e	| 111$c	| If (I1=1) Then S
+//710$f	| 111$f	| If (I1=1) Then S
+//710$4	| 111$4	| If (I1=1) Then To(3);If (I1=1) Then Table ('table2.tbl')
+
+//711	| 710(no)	| If (I1=0) Then Sort('ncf')
+//711	| 711(no)	| If (I1=1) Then Sort('ncf')
+//711I1	| 710(no)I2	| If (I1=0) Then ' '
+//711I2	| 710(no)I1	| If (I1=0) Then S
+//711$a	| 710(no)$a	| If (I1=0) Then Delete(',') 
+//711$b	| 710(no)$b	| If (I1=0) Then S
+//711$c	| 710(no)$e	| If (I1=0) Then S
+//711$d	| 710(no)$n	| + If (I1=0) Then S
+//711$e	| 710(no)$c	| If (I1=0) Then S
+//711$f	| 710(no)$f	| If (I1=0) Then S
+//711$4	| 710(no)$4	| If (I1=0) Then To(3);If (I1=0) Then Table ('table2.tbl')
+//711I1	| 711(no)I1	| If (I1=1) Then ' '
+//711I1	| 711(no)I2	| If (I1=1) Then S
+//711$a	| 711(no)$a	| If (I1=1) Then Delete(',') 
+//711$b	| 711(no)$c	| If (I1=1) Then S
+//711$c	| 711(no)$e	| If (I1=1) Then S
+//711$d	| 711(no)$n	| + If (I1=1) Then S
+//711$e	| 711(no)$c	| If (I1=1) Then S
+//711$f	| 711(no)$f	| If (I1=1) Then S
+//711$4	| 711(no)$4	| If (I1=1) Then To(3);If (I1=1) Then Table ('table2.tbl')
+
+//712	| 710(no)	| If (I1=0) Then Sort('ncf')
+//712	| 711(no)	| If (I1=1) Then Sort('ncf')
+//712I1	| 710(no)I2	| If (I1=0) Then ' '
+//712I2	| 710(no)I1	| If (I1=0) Then S
+//712$a	| 710(no)$a	| If (I1=0) Then Delete(',') 
+//712$b	| 710(no)$b	| If (I1=0) Then S
+//712$c	| 710(no)$e	| If (I1=0) Then S
+//712$d	| 710(no)$n	| + If (I1=0) Then S
+//712$e	| 710(no)$c	| If (I1=0) Then S
+//712$f	| 710(no)$f	| If (I1=0) Then S
+//712$4	| 710(no)$4	| If (I1=0) Then To(3);If (I1=0) Then Table ('table2.tbl')
+//712I1	| 711(no)I1	| If (I1=1) Then ' '
+//712I1	| 711(no)I2	| If (I1=1) Then S
+//712$a	| 711(no)$a	| If (I1=1) Then Delete(',') 
+//712$b	| 711(no)$c	| If (I1=1) Then S
+//712$c	| 711(no)$e	| If (I1=1) Then S
+//712$d	| 711(no)$n	| + If (I1=1) Then S
+//712$e	| 711(no)$c	| If (I1=1) Then S
+//712$f	| 711(no)$f	| If (I1=1) Then S
+//712$4	| 711(no)$4	| If (I1=1) Then To(3);If (I1=1) Then Table ('table2.tbl')
+
+720I1	| 100I1	| 3
+720I2	| 100I2	| ' '
+720$a   | 100$a | 
+720$f	| 100$c	| 
+801	| 040I1	| ' '
+801	| 040I2	| ' '
+801$b	| 040$a	|  If (I2=0) Then S
+801$b	| 040$a	|  If ((I2=1) and (Not Exists(@801$d))) Then 'XX-XxUND'
+801$b	| 040$c	|  If (I2=1) Then S
+801$b	| 040$d	|  If (I2=2) Then S
+801$b	| 040$d	|  If (I2=3) Then S
+801$g	| 040$e	|  If (Not (S='AACR2')) Then S
+801$g	| 000/19/	|  If ((S='AACR2')) Then 'u'
+801	| 035I1	| ' '
+801	| 035I2	| ' '
+// Takes latest agency code and place in 035$a
+801$b	| 035$a	| If (I1=0) Then '(' + S + ')'
+801$b	| 035$a	| If (I1=1) Then '(' + S + ')'
+801$b	| 035$a	| If (I1=2) Then '(' + S + ')'
+801$b	| 035$a	| If (I1=3) Then '(' + S + ')'
+
+852I1	| 852I1	| 
+852I2	| 852I2	| 
+852	| 852	| 
+
+911I1	| 911I1	| 
+911I2	| 911I2	| 
+911	| 911	| 

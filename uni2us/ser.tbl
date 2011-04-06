@@ -1,0 +1,7 @@
+ser.tbl
+
+a | p
+b | m
+c | n
+z | 0x20
+#DEFAULT | 0X7c

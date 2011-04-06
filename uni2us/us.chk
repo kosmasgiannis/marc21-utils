@@ -1,0 +1,625 @@
+USMARC FORMAT CHECKING FILE
+
+//Record Control Number
+001_| I1= | I2= |
+
+//Control Number Identifier
+003?| I1= | I2= |
+
+//Date and Time of the Latest Transaction
+005?| I1 = | I2= |
+
+//FIXME
+//006*| I1 = | I2= |
+
+//Physical Description Fixed Field
+007*| I1= | I2= |
+
+//Fixed Length Data Elements
+008_| I1= | I2= |
+
+//Library of Congress Control Number
+010?| I1=_ | I2=_ | $a_ | $b* | $z* |
+
+//FIXME
+013?| I1=_ | I2=_ | $a? | $b? | $c? | $d* | $e* | $f* | $6? | $8* |
+
+//National Bibliography Number
+015?| I1=_ | I2=_ | $a+ | $2? | $6? | $8* |
+
+//FIXME
+016?| I1=_ | I2=_ | $a_ | $z* | $2? | $8* |
+
+//Copyright Registration Number
+017*| I1=_ | I2=_ | $a+ | $b? | $d? | $2? | $6? | $8* |
+
+//Copyright Article Fee Code
+018?| I1=_ | I2=_ | $a_ | $6? | $8* |
+
+//International Standard Book Number
+020*| I1=_ | I2=5 | $a_ | $c? | $z* | $6? | $8* |
+
+//International Standard Serial Number
+022*| I1=_01 | I2=_ | $a_ | $y* | $z* | $6? | $8* |
+
+//Other Standard Identifier
+024*| I1=0123478 | I2=_01 | $a_ | $c? | $d? | $z* | $2? | $6? | $8* |
+
+//Overseas Acquisition Number
+025*| I1=_ | I2=_ | $a+ | $8* |
+
+//FIXME
+//026
+
+//Standard Technical Report Number
+027*| I1=_ | I2=_ | $a_ | $z* | $8* |
+
+//Publisher Number for Music
+028*| I1=01234 | I2=0123 | $a_ | $b? | $6? | $8* |
+
+//Coden Designation
+030*| I1=_ | I2=_ | $a_ | $z* | $6? | $8* |
+
+//FIXME
+//031
+
+//Postal Registration Number
+032*| I1=_ | I2=_ | $a_ | $b? | $6? | $8* |
+
+// Date/Time and Place of an Event
+033*| I1=_012 | I2=_012 | $a+ | $b* | $c* | $3? | $6? |  $8* |
+
+//System Control Number
+035*| I1=_ | I2=_ | $a_ | $z* | $6? | $8* |
+
+//FIXME
+//036
+
+//Source of Acquisition
+037*| I1=_ | I2=_ | $a_ | $b? | $c* | $f* | $g* | $n* | $6? | $8* |
+
+//FIXME
+//038
+
+//Cataloging Source
+040?| I1=_ | I2=_ | $a_ | $b? | $c? | $d* | $e? | $6? | $8* |
+
+//Language Code
+041?| I1=01 | I2=_ | $a_ | $b? | $d? | $e? | $f? | $g? | $h* | $6? |
+
+//Authentication Code
+042?| I1=_ | I2=_ | $a+ |
+
+//Geographic Area Code
+043?| I1=_ | I2=_ | $a+ | $8* |
+
+//Country of Publishing/Producing Entity Code
+044?| I1=_ | I2=_ | $a+ | $8* |
+
+//Time Period of Content
+045?| I1=_012 | I2=_ | $a+ | $b* | $c* | $8* |
+
+//Type of Date Code, Date 1, Date 2(BC Dates)
+046?| I1=_ | I2=_ | $a_ | $b? | $c? | $d? | $e? | $8* |
+
+//FIXME
+//047
+
+//FIXME
+//048
+
+//Library of Congress Call Number
+050*| I1=_01 | I2=04 | $a+ | $b? | $3? | $8* |
+
+//Library of Congress Copy, Issue, Offprint statement
+051*| I1=_ | I2=_ | $a_ | $b? | $c? | $8* |
+
+//Geographic Classification Code
+052*| I1=_ | I2=_ | $a_ | $b* | $8* |
+
+//Call Numbers/Class Numbers assigned in Canada
+055*| I1=_01 | I2=0123456789 | $a_ | $b? | $2? | $8* |
+
+//National Library of Medicine Call Number
+060*| I1=_01 | I2=04 | $a+ | $b? | $8* |
+
+//National Library of Medicine Copy Statement
+061*| I1=_ | I2=_ | $a+ | $b? | $c? | $8* |
+
+//Character Sets Present
+066?| I1=_ | I2=_ | $a_ | $b? | $c* |
+
+//National Agricultural Library Call Number
+070*| I1=01 | I2=_ | $a+ | $b? | $8* |
+
+//National Agricultural Library Copy Statement
+071*| I1=_ | I2=_ | $a+ | $b? | $c? | $8* |
+
+//Subject Category Code
+072*| I1=_ | I2=07 | $a_ | $x* | $2? | $6? | $8* |
+
+//GPO Item Number
+074*| I1=_ | I2=_ | $a_ | $z* | $8* |
+
+//Universal Decimal Classification Number
+080?| I1=_ | I2=_ | $a+ | $8* |
+
+//Dewey Decimal Call Number
+082*| I1=01_ | I2=04 | $a+ | $b? | $2? | $8* |
+
+//Other Classification Number
+084*| I1=_ | I2=_ | $a+ | $b? | $2? | $6? | $8* |
+
+//Government Document Classification Number
+086*| I1=_01 | I2=_ | $a_ | $z? | $2? | $6? | $8* |
+
+//Report Number
+088*| I1=_ | I2=_ | $a_ | $z? | $6? | $8* |
+
+//Main Entry - Personal Name
+100?| I1=0123 | I2=_ | $a_ | $b? | $c* | $d? | $e* | $f? | $g? | $k* | $l? | $n* | $p* | $q? | $t? | $u? | $4* | $6? | $8* |
+
+//Main Entry - Corporate Name
+110?| I1=012 | I2=_ | $a_ | $b* | $c? | $d* | $e* | $f? | $g? | $k* | $l? | $n* | $p* | $t? | $u? | $4* | $6? | $8* |
+
+//Main Entry - Meeting Name
+111?| I1=012 | I2=_ | $a_ | $c? | $d? | $e* | $f? | $g? | $k* | $l? | $n* | $p* | $q? | $t? | $u? | $4* | $6? | $8* |
+
+//Main Entry - Uniform Title
+130?| I1=0123456789 | I2=_ | $a_ | $d* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $r? | $s? | $t? | $6? | $8* |
+
+//Abbreviated Key Title
+210?| I1=01 | I2=_ | $a_ | $b? | $6? | $8* |
+
+//Key title
+222*| I1=_ | I2=0123456789 | $a_ | $b? | $6? | $8* |
+
+//Uniform title
+240?| I1=01 | I2=0123456789 | $a_ | $d* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $r? | $s? | $6? | $8* |
+
+//Translation of Title by Cataloguing Agency
+242*| I1=01 | I2=0123456789 | $a_ | $b? | $c? | $h? | $n* | $p* | $y? | $6? | $8* |
+
+//Collective Uniform Title
+243?| I1=01 | I2=0123456789 | $a_ | $d* | $f? | $g? | $h? | $k* | $l? | $m? | $n* | $o? | $p* | $r? | $s? | $6? | $8* |
+
+//Title Statement
+245_| I1=01 | I2=0123456789 | $a_ | $b? | $c? | $f? | $g? | $h? | $k* | $n* | $p* | $s? | $6? | $8* |
+
+//Varying Form Title
+246*| I1=0123 | I2=_012345678 | $a_ | $b? | $f? | $g? | $h? | $i? | $n* | $p* | $5? | $6? | $8* |
+
+//Former Title or Title Variations
+247*| I1=01 | I2=01 | $a_ | $b? | $f? | $g? | $h? | $n* | $p* | $x? | $6? | $8* |
+
+//Edition Statement
+250?| I1=_ | I2=_ | $a_ | $b? | $6? | $8* |
+
+//Musical Presentation Statement
+254?| I1=_ | I2=_ | $a_ | $6? | $8* |
+
+//FIXME
+//255
+
+//FIXME
+//256
+
+//FIXME
+//257
+
+//FIXME
+//258
+
+//Publication, Distribution etc (Imprint)
+260?| I1=_ | I2=_ | $a+ | $b* | $c* | $d* | $e? | $f? | $g? | $6? | $8* |
+
+//Projected Publication Date
+263?| I1=_ | I2=_ | $a_ | $8* |
+
+//Primary Address
+270*| I1=_ | I2=_ | $a+ | $b? | $c? | $d? | $e? | $f? | $g? | $h? | $i? | $j* | $k* | $l* | $m* | $n* | $p* | $q* | $r* | $z* | $4? | $6? | $8* |
+
+//Physical Description
+300*| I1=_ | I2=_ | $a+ | $b? | $c* | $e? | $f* | $g* | $3? | $6? | $8* |
+
+//FIXME
+//306
+
+//Hours etc.
+307?| I1=_8 | I2=_ | $a_ | $b? | $6? | $8* |
+
+//Current Publication Frequency
+310?| I1=_ | I2=_ | $a_ | $b? | $6? | $8* |
+
+//Former Publication Frequency
+321*| I1=_ | I2=_ | $a_ | $b? | $6? | $8* |
+
+//Physical Medium
+340*| I1=_ | I2=_ | $a+ | $b* | $c* | $d* | $e* | $f* | $h* | $i* | $3? | $6? | $8* |
+
+//FIXME
+//342
+
+//FIXME
+//343
+
+//Organization and Arrangements of Materials
+351*| I1=_ | I2=_ | $a+ | $b* | $c? | $3? | $6? | $8* |
+
+//FIXME
+//352
+
+//Security Classification Control
+355*| I1=012348| I2=_ | $a_ | $b* | $c* | $d? | $e? | $f? | $6? | $8* |
+
+//Originator Dissemination Control
+357?| I1=_ | I2=_ | $a_ | $b* | $c* | $g* | $6? | $8* |
+
+//Dates of Publication and/or Volume Designation
+362*| I1=01 | I2=_ | $a_ | $z? | $6? | $8* |
+
+//FIXME
+//365
+
+//FIXME
+//366
+
+//Series Statement / Added Entry - Personal Name
+//400*| I1=0123 | I2=01 | $a_ | $b? | $c* | $d? | $e* | $f? | $g? | $k* | $l? | $n* | $p* | $t? | $u? | $v? | $x? | $4* | $6? |
+//
+//Series Statement/Added Entry - Corporate Name
+//410*| I1=012 | I2=01 | $a_ | $b* | $c? | $d* | $e* | $f? | $g? | $k* | $l? | $n* | $p* | $t? | $u? | $v? | $x? | $4* | $6? |
+//
+//Series Statement/Added Entry - Meeting Name
+//411*| I1=012 | I2=01 | $a_ | $c? | $d? | $e* | $f? | $g? | $k* | $l? | $n* | $p* | $q? | $t? | $u? | $v? | $x? | $4* | $6? |
+//
+//Series Statements/Added Entry - Title
+440*| I1=_ | I2=0123456789 | $a_ | $n* | $p* | $v? | $x? | $6? | $8* |
+
+//Series Statement
+490*| I1=01 | I2=_ | $a+ | $l? | $v* | $x? | $6? | $8* |
+
+//General Note
+500*| I1=_ | I2=_ | $a_ | $3? | $5? | $6? | $8* |
+
+//With Note
+501*| I1=_ | I2=_ | $a_ | $5? | $6? | $8* |
+
+//Dissertation Note
+502*| I1=_ | I2=_ | $a_ | $6? | $8* |
+
+//Bibliography etc
+504*| I1=_ | I2=_ | $a_ | $b? | $6? | $8* |
+
+//Formatted Contents Notes
+505?| I1=0128 | I2=_0 | $a_ | $g* | $r* | $t* | $6? | $8* |
+
+//Restrictions on Access Note
+506*| I1=_ | I2=_ | $a_ | $b* | $c* | $d* | $e* | $3? | $5? | $6? | $8* |
+
+//FIXME
+//507
+
+//FIXME
+//508
+
+//Citation/References Notes
+510*| I1=01234 | I2=_ | $a_ | $b? | $c? | $x? | $3? | $6? |
+
+//FIXME
+//511
+
+//Type of Report and Period Covered Note
+513*| I1=_ | I2=_ | $a_ | $b? | $6? |
+
+//FIXME
+//514
+
+//Numbering Peculiarities Note
+515*| I1=_ | I2=_ | $a_ | $6? |
+
+//FIXME
+//516
+
+//Date/Time and Place of an Event Note
+518*| I1=_ | I2=_ | $a_ | $3? | $6? |
+
+//Summary, etc Note
+520*| I1=_018 | I2=_ | $a_ | $b? | $3? | $6? |
+
+//Target Audience Note
+521*| I1=_012348 | I2=_ | $a+ | $b? | $3? | $6? |
+
+//Geographic Coverage Note
+522?| I1=_8 | I2=_ | $a_ | $6? |
+
+//Preffered Citation of Described Materials Note
+524?| I1=_8 | I2=_ | $a_ | $6? |
+
+//Supplement Note
+525*| I1=_ | I2=_ | $a_ | $6? |
+
+//FIXME
+//526
+
+//Additional Physical Form Available Note
+530*| I1=_ | I2=_ | $a_ | $b? | $c? | $d? | $3? | $6? |
+
+//Reproduction Note
+533*| I1=_ | I2=_ | $a_ | $b* | $c* | $d? | $e? | $f* | $m* | $n* | $3? | $6? | $7?|
+
+//Original Version Note
+534*| I1=_ | I2=_ | $a_ | $b? | $c? | $e? | $f* | $k* | $l? | $m? | $n* | $p_ | $t? | $x* | $z* | $6? |
+
+//Location of Original/Duplicates Note
+535*| I1=12 | I2=_ | $a_ | $b* | $c* | $d* | $g? | $3? | $6? |
+
+//Funding Information Note
+536*| I1=_ | I2=_ | $a_ | $b* | $c* | $d* | $6? |
+
+//System Details Note
+538*| I1=_ | I2=_ | $a_ | $6? |
+
+//Terms Governing Use and Reproduction Note
+540*| I1=_ | I2=_ | $a_ | $b? | $c? | $d? | $3? | $5? | $6? |
+
+//Immediate Source of Acquisition
+541*| I1=_ | I2=_ | $a_ | $b? | $c? | $d? | $e? | $f? | $h? | $n* | $o* | $3? | $5? | $6? |
+
+//Location of Associated Archival Materials Note
+544*| I1=_ | I2=_ | $a+ | $b* | $c* | $d* | $e* | $3? | $6? |
+
+//Biographical or Historical Note
+545*| I1=_ | I2=_ | $a_ | $b? | $6? |
+
+//Language Note
+546*| I1=_ | I2=_ | $a_ | $b* | $3? | $6? |
+
+//Former Title Complexity Note
+547*| I1=_ | I2=_ | $a_ | $6? |
+
+//Issuing Body Note
+550*| I1=_ | I2=_ | $a_ | $6? |
+
+//FIXME
+//552
+
+//Cumulative Index/Finding Aids Note
+555*| I1=_08 | I2=_ | $a_ | $b* | $c? | $d? | $3? | $6? |
+
+//Information About Documentation Note
+556*| I1=_8 | I2=_ | $a_ | $z* | $6? |
+
+//Provenance Note
+561*| I1=_ | I2=_ | $a_ | $b? | $3? | $5? | $6? |
+
+//Copy and Version Identification Note
+562*| I1=_ | I2=_ | $a+ | $b* | $c* | $d* | $e* | $3? | $5? | $6? |
+
+//FIXME
+//563
+
+//Case File Characteristics Note
+565*| I1=_08 | I2=_ | $a_ | $b* | $c* | $d* | $e* | $3? | $6? |
+
+//Methodology Note
+567*| I1=_8 | I2=_ | $a_ | $6? |
+
+//Linking Entry Complexity Note
+580*| I1=_ | I2=_ | $a_ | $6? |
+
+//Publications about Described Materials Note
+581*| I1=_8 | I2=_ | $a_ | $z* | $3? | $6? |
+
+//Action Note
+583*| I1=_ | I2=_ | $a_ | $b* | $c* | $d* | $e* | $f* | $h* | $i* | $j* | $k* | $l* | $n* | $o* | $x* | $z* | $3? | $5? | $6? |
+
+//Accumulation and Frequency of Use Note
+584*| I1=_ | I2=_ | $a+ | $b* | $3? | $5? | $6? |
+
+//Exhibitions Note
+585*| I1=_ | I2=_ | $a_ | $3? | $5? | $6? |
+
+//Awards Note
+586*| I1=_8 | I2=_ | $a_ | $3? | $6? |
+
+//Subject Added Entry - Personal Name
+600*| I1=_0123 | I2=01234567 | $a_ | $b? | $c* | $d? | $e* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $q? | $r? | $s? | $t? | $u? | $v* | $x* | $y* | $z* | $2? | $3? | $4* | $6? |
+
+//Subject Added Entry - Corporate Name
+610*| I1=012 | I2=01234567 | $a_ | $b? | $c? | $d* | $e* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $r? | $s? | $t? | $u? | $v* | $x* | $y* | $z* | $2? | $3? | $4* | $6? |
+
+//Subject Added Entry - Metting Name
+611*| I1=012 | I2=01234567 | $a_ | $c? | $d? | $e* | $f? | $g? | $h? | $k* | $l? | $n* | $p* | $q? | $s? | $t? | $u? | $v* | $x* | $y* | $z* | $2? | $3? | $4* | $6? |
+
+//Subject Added Entry - Uniform Title
+630*| I1=0123456789 | I2=01234567 | $a_ | $d* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $r? | $s? | $t? | $v* | $x* | $y* | $z* | $2? | $3? | $6? |
+
+//FIXME
+//648
+
+//Subject Added Entry - Topical Term
+650*| I1=_012 | I2=01234567 | $a_ | $b? | $c? | $d? | $e? | $v* | $x* | $y* | $z* | $2? | $3? | $6? |
+
+//Subject Added Entry - Geographic Name
+651*| I1=_ | I2=01234567 | $a_ | $v* | $x* | $y* | $z* | $2? | $3? | $6? |
+
+//Index Term - Uncontrolled
+653*| I1=_012 | I2=_ | $a+ | $6? |
+
+//Subject Added Entry - Faceted Topical Terms
+654*| I1=_012 | I2=_ | $a_ | $b* | $c* | $v* | $y* | $z* | $2? | $3? |
+
+//Index Term - Genre/Form
+655*| I1=_0 | I2=7 | $a_ | $b* | $c* | $v* | $x* | $y* | $z* | $2? | $3? | $6? |
+
+//Index Term - Occupation
+656*| I1=_ | I2=7 | $a_ | $k? | $v? | $ x* | $y* | $z* | $2? | $3? | $6? |
+
+//Index Term - Function
+657*| I1=_ | I2=7 | $a_ | $v? | $x* | $y* | $z* | $2? | $3? | $6? |
+
+//Index Term - Curriculum Objective
+658*| I1=_ | I2=_ | $a_ | $b* | $c? | $d? | $2? | $6? |
+
+//Added Entry - Personal Name
+700*| I1=0123 | I2=_2 | $a_ | $b? | $c* | $d? | $e* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $q? | $r? | $s? | $t? | $u? | $x? | $3? | $4* | $5? | $6? |
+
+//Added Entry - Corporate Name
+710*| I1=012 | I2=_2 | $a_ | $b* | $c? | $d* | $e* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $r? | $s? | $t? | $u? | $x? | $3? | $4* | $5? | $6? |
+
+//Added Entry - Meeting Name
+711*| I1=012 | I2=_2 | $a_ | $c? | $d? | $e* | $f? | $g? | $h? | $k* | $l? | $n* | $p* | $q? | $s? | $t? | $u? | $x? | $3? | $4* | $5? | $6? |
+
+//Added Entry - Uniform Title
+730*| I1=0123456789 | I2=_2 | $a_ | $d* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $r? | $s? | $t? | $x? | $3? | $5? | $6? |
+
+//Added Entry - Uncontrolled Related / Analytical title
+740*| I1=0123456789 | I2=_2 | $a_ | $h? | $n* | $p* | $5? | $6? |
+
+//Added Entry - Hierarchical Place Name
+752*| I1=_ | I2=_ | $a_ | $b? | $c? | $d? | $6? |
+
+//Systems Details Access to Computer files
+753*| I1=_ | I2=_ | $a_ | $b? | $c? | $6? |
+
+//Added Entry - Taxonomic Identification
+754*| I1=_ | I2=_ | $a+ | $2? | $6? |
+
+//Added Entry - Physical Characteristics
+//755*| I1=_ | I2=_ | $a_ | $v* | $x* | $y* | $z* | $2? | $3? | $6? |
+
+
+//Main Series Entry
+760*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $m? | $n* | $s? | $t? | $w* | $x? | $y? | $6? | $7? |
+
+//Subseries Entry
+762*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $m? | $n* | $s? | $t? | $w* | $x? | $y? | $6? | $7? |
+
+//Original Language Entry
+765*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//Translation Entry
+767*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//Supplement/Special Issue Entry
+770*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//Parent Record Entry
+772*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//Host Item Entry
+773*| I1=01 | I2=_ | $a_ | $b? | $d? | $g* | $h? | $k* | $m? | $n* | $p? | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $3? | $6? | $7? |
+
+//FIXME
+//774
+
+//Other Edition Entry
+775*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $e? | $f? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//Additional Physical Form Entry
+776*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//Issued with Entry
+777*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $s? | $t? | $w* | $x? | $y? | $6? | $7? |
+
+//Preceding Entry
+780*| I1=01 | I2=01234567 | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//Succeeding Entry
+785*| I1=01 | I2=012345678 | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//FIXME
+//786
+
+//Nonspecific Relationship Entry
+787*| I1=01 | I2=_ | $a_ | $b? | $c? | $d? | $g* | $h? | $k* | $m? | $n* | $r* | $s? | $t? | $u? | $w* | $x? | $y? | $z* | $6? | $7? |
+
+//FIXME
+//790
+
+//Series Added Entry - Personal Name
+800*| I1=0123 | I2=_ | $a_ | $b? | $c* | $d? | $e* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $q? | $r? | $s? | $t? | $u? | $v? | $4* | $6? |
+
+//Series Added Entry - Corporate Name
+810*| I1=012 | I2=_ | $a_ | $b* | $c? | $d* | $e* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $r? | $s? | $t? | $u? | $v? | $4* | $6? |
+
+//Series Added Entry - Meeting Name
+811*| I1=012 | I2=_ | $a_ | $c? | $d? | $e* | $f? | $g? | $h? | $k* | $l? | $n* | $p* | $q? | $s? | $t? | $u? | $v? | $4* | $6? |
+
+//Series Added Entry - Uniform Title
+830*| I1=_ | I2=0123456789 | $a_ | $d* | $f? | $g? | $h? | $k* | $l? | $m* | $n* | $o? | $p* | $r? | $s? | $t? | $v? | $6? |
+
+//Holdings Coded Data Values
+841?| I1= | I2= |
+
+//FIXME
+//842
+
+//Reproduction Note
+843*| I1= | I2= |
+
+//FIXME
+//844
+
+//Terms Governing Use and Reproduction Note
+845*| I1= | I2= |
+
+//Holding Institution
+850*| I1=_ | I2=_ | $a+ |
+
+//Location / Call Number
+852*| I1=_012345678 | I2=_012 | $a_ | $b* | $c* | $e* | $f* | $g* | $h? | $i* | $j? | $k? | $l? | $m? | $n? | $p? | $q? | $s* | $t? | $x* | $z* | $2? | $3? | $8? 
+
+//FIXME
+//853
+
+//FIXME
+//854
+
+//FIXME
+//855
+
+// DONE //Electronic Location and Access
+856*| I1=_012347 | I2=_0128 | $a+ | $b* | $c* | $d* | $f* | $g* | $h? | $i* | $j? | $k? | $l? | $m* | $n? | $o? | $p? | $q? | $r? | $s* | $t* | $u* | $v* | $w* | $x* | $y* | $z* | $2? | $3? | $6? | $8* |
+
+//FIXME
+//863
+
+//FIXME
+//864
+
+//FIXME
+//865
+
+//FIXME
+//866
+
+//FIXME
+//867
+
+//FIXME
+//868
+
+//FIXME
+//876
+
+//FIXME
+//877
+
+//FIXME
+//878
+
+//Alternative Graphic Representation
+880*| I1= | I2= | $a* | $b* | $c* | $d* | $e* | $f* | $g* | $h* | $i* | $j* | $k* | $l* | $m* | $n* | $o* | $p* | $q* | $r* | $s* | $t* | $u* | $v* | $w* | $x* | $y* | $z* | $0* | $1* | $2* | $3* | $4* | $5* | $6? | $7* | $8* | $9* |
+
+//Foreign MARC Information Field
+886*| I1=012 | I2=_ | $a_ | $b? | $c* | $d* | $e* | $f* | $g* | $h* | $i* | $j* | $k* | $l* | $m* | $n* | $o* | $p* | $q* | $r* | $s* | $t* | $u* | $v* | $w* | $x* | $y* | $z* | $0* | $1* | $2? | $3* | $4* | $5* | $6* | $7* | $8* | $9* |
+
+//FIXME
+//887*| I1=012 | I2=_ | $a_ | $2? |
+
+
+//| $a* | $b* | $c* | $d* | $e* | $f* | $g* | $h* | $i* | $j* | $k* | $l* | $m* | $n* | $o* | $p* | $q* | $r* | $s* | $t* | $u* | $v* | $w* | $x* | $y* | $z* | $0* | $1* | $2* | $3* | $4* | $5* | $6* | $7* | $8* | $9* |
+
+911* | I1=*             | I2=*          | $**

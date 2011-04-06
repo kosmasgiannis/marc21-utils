@@ -1,0 +1,11 @@
+#!/bin/bash
+DIR="$1"
+#for a in $* ; do
+#for a in `ls $DIR` ; do
+ #echo $a;
+ #xmllint --format "$DIR/$a" > /tmp/xmlout.xml;
+ #mv /tmp/xmlout.xml "$DIR/$a";
+#done
+
+#find $DIR -name '*' -exec '/c/Documents and Settings/kosmas/Desktop/Globo_unimarc/globo/usemarcon.exe' ' -dc uni2us.ini' '{}' \;
+find $DIR -name '*' -exec '/c/Documents and Settings/kosmas/Desktop/Globo_unimarc/globo/conv2' '{}' \;

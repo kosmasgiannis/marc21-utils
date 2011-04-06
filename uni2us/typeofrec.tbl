@@ -1,0 +1,17 @@
+typeofrec.tbl
+
+a | a
+b | b
+c | c
+d | d
+e | e
+f | f
+g | g
+h | a
+i | a
+j | a
+k | a
+l | a
+m | o
+n | r
+#DEFAULT | 0x20

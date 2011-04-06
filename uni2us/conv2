@@ -1,0 +1,4 @@
+#!/bin/bash
+echo $1;
+'/c/Documents and Settings/kosmas/My Documents/My Dropbox/Geroulaneios/unimarc/bin/usemarcon.exe' -dc uni2us.ini "$1"
+#mv '/c/Documents and Settings/kosmas/My Documents/My Dropbox/Geroulaneios/unimarc/bin/unius.mrc' "$1"

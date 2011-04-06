@@ -1,0 +1,10 @@
+aud.tbl
+
+a | j
+b | a
+c | b
+d | c
+e | d
+k | f
+m | g
+#DEFAULT | 0X20

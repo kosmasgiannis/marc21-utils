@@ -1,0 +1,3 @@
+#!/bin/bash
+DIR="$1"
+find $DIR -name '*' -exec '/c/Documents and Settings/kosmas/Desktop/Globo_unimarc/globo/conv32' '{}' \;
