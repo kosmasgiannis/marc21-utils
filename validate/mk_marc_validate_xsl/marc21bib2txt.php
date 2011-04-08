@@ -18,20 +18,20 @@ foreach ($scf as $k => $v) {
     $ret = scraping_lc_marc21($v);
 }
 
-echo "853=RO,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNtNuRvRwNxNyRzR2R3N6N8R,http://www.loc.gov/marc/bibliographic/hd853.html"."\n";
-echo "854=RO,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNtNuRvRwNxNyRzR2R3N6N8R,http://www.loc.gov/marc/bibliographic/hd854.html"."\n";
-echo "855=RO,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNtNuRvRwNxNyRzR2R3N6N8R,http://www.loc.gov/marc/bibliographic/hd855.html"."\n";
-echo "863=RO,aNbNcNdNeNfNgNhNiNjNkNlNmNnNpNqNsRtNwNxRzR6N8N,http://www.loc.gov/marc/bibliographic/hd863.html"."\n";
-echo "864=RO,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNqNsRtNwNxRzR6N8N,http://www.loc.gov/marc/bibliographic/hd864.html"."\n";
-echo "865=RO,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNqNsRtNvRwNxRzR6N8N,http://www.loc.gov/marc/bibliographic/hd865.html"."\n";
-echo "866=RO,aNxRzR2N6N8R,http://www.loc.gov/marc/bibliographic/hd866.html"."\n";
-echo "867=RO,aNxRzR2N6N8R,http://www.loc.gov/marc/bibliographic/hd867.html"."\n";
-echo "868=RO,aNxRzR2N6N8R,http://www.loc.gov/marc/bibliographic/hd868.html"."\n";
-echo "876=RO,aNbRcRdReRhRjRlRpRrRtNxRzR3N6N8N,http://www.loc.gov/marc/bibliographic/hd876.html"."\n";
-echo "877=RO,aNbRcRdReRhRjRlRpRrRtNxRzR3N6N8N,http://www.loc.gov/marc/bibliographic/hd877.html"."\n";
-echo "878=RO,aNbRcRdReRhRjRlRpRrRtNxRzR3N6N8N,http://www.loc.gov/marc/bibliographic/hd878.html"."\n";
-echo "880=RO,aRbRcRdReRfRgRhRiRjRkRlRmRnRoRpRqRrRsRtRuRvRwRxRyRzR0R1R2R3R4R5R6N7R8R9R,http://www.loc.gov/marc/bibliographic/bd880.html"."\n";
-echo "886=RO,aNbNcRdReRfRgRhRiRjRkRlRmRnRoRpRqRrRsRtRuRvRwRxRyRzR0R1R2N3R4R5R6R7R8R9R,http://www.loc.gov/marc/bibliographic/bd886.html"."\n";
+echo "853=RO,0123,0123,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNtNuRvRwNxNyRzR2R3N6N8R,http://www.loc.gov/marc/bibliographic/hd853.html"."\n";
+echo "854=RO,0123,0123,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNtNuRvRwNxNyRzR2R3N6N8R,http://www.loc.gov/marc/bibliographic/hd854.html"."\n";
+echo "855=RO, , ,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNtNuRvRwNxNyRzR2R3N6N8R,http://www.loc.gov/marc/bibliographic/hd855.html"."\n";
+echo "863=RO, 345, 01234,aNbNcNdNeNfNgNhNiNjNkNlNmNnNpNqNsRtNwNxRzR6N8N,http://www.loc.gov/marc/bibliographic/hd863.html"."\n";
+echo "864=RO, 345, 01234,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNqNsRtNwNxRzR6N8N,http://www.loc.gov/marc/bibliographic/hd864.html"."\n";
+echo "865=RO, 345, 01234,aNbNcNdNeNfNgNhNiNjNkNlNmNnNoNpNqNsRtNvRwNxRzR6N8N,http://www.loc.gov/marc/bibliographic/hd865.html"."\n";
+echo "866=RO, 345,0127,aNxRzR2N6N8R,http://www.loc.gov/marc/bibliographic/hd866.html"."\n";
+echo "867=RO, 345,0127,aNxRzR2N6N8R,http://www.loc.gov/marc/bibliographic/hd867.html"."\n";
+echo "868=RO, 345,0127,aNxRzR2N6N8R,http://www.loc.gov/marc/bibliographic/hd868.html"."\n";
+echo "876=RO, , ,aNbRcRdReRhRjRlRpRrRtNxRzR3N6N8N,http://www.loc.gov/marc/bibliographic/hd876.html"."\n";
+echo "877=RO, , ,aNbRcRdReRhRjRlRpRrRtNxRzR3N6N8N,http://www.loc.gov/marc/bibliographic/hd877.html"."\n";
+echo "878=RO, , ,aNbRcRdReRhRjRlRpRrRtNxRzR3N6N8N,http://www.loc.gov/marc/bibliographic/hd878.html"."\n";
+echo "880=RO, 1234567890, 1234567890,aRbRcRdReRfRgRhRiRjRkRlRmRnRoRpRqRrRsRtRuRvRwRxRyRzR0R1R2R3R4R5R6N7R8R9R,http://www.loc.gov/marc/bibliographic/bd880.html"."\n";
+echo "886=RO,012, ,aNbNcRdReRfRgRhRiRjRkRlRmRnRoRpRqRrRsRtRuRvRwRxRyRzR0R1R2N3R4R5R6R7R8R9R,http://www.loc.gov/marc/bibliographic/bd886.html"."\n";
 
 echo "090=RO, 1234567890, 1234567890,aRbRcRdReRfRgRhRiRjRkRlRmRnRoRpRqRrRsRtRuRvRwRxRyRzR0R1R2R3R4R5R6R7R8R9R,"."\n";
 echo "099=RO, 1234567890, 1234567890,aRbRcRdReRfRgRhRiRjRkRlRmRnRoRpRqRrRsRtRuRvRwRxRyRzR0R1R2R3R4R5R6R7R8R9R,"."\n";
