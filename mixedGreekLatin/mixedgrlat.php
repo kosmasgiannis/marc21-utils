@@ -128,7 +128,7 @@ function mixed_sort_cmp($a, $b) {
 function examine_mixed_greek_latin_words($text) {
   $mixed_words = array();
 
-  preg_match_all("/([^«»¨\΄[:cntrl:][:punct:][:space:]]+)/u",$text,$m);
+  preg_match_all("/([^«»¨\΄“—”’–´…∙[:cntrl:][:punct:][:space:]]+)/u",$text,$m);
   mb_internal_encoding("UTF-8");
   $greek_letters = "αβγδεζηθικλμνξοπρστυφχψωάέήίόύώϊϋΐΰςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΆΈΉΊΌΎΏΪΫ";
   $numbers = "0123456789";
@@ -177,7 +177,13 @@ function fix_mixed_greek_latin_words($word) {
    } elseif ((($greek_first == 0) && ($latin_cnt < $greek_cnt) ) || (($greek_last == 0) && ($latin_cnt < $greek_cnt)) ) {
     return change_to_greek($word);
    } else {
-    return $word;
+     if ($latin_cnt < $greek_cnt) {
+       return change_to_greek($word);
+     } elseif ($latin_cnt > $greek_cnt) {
+       return change_to_latin($word);
+     } else {
+       return $word;
+     }
    }
 }
 
