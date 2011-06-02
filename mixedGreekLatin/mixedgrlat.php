@@ -65,6 +65,7 @@ if (($filename !== FALSE) && (is_readable($filename))) {
 function fix_mixed_greek_latin_marc21($filename, $skip_fields, $void_fields, $ignore_list, $debug = 0) {
 
   $stat = 0;
+  $first = 1;
   $fc = file_get_contents($filename,true);
 
   preg_match_all("/([^\n]+)/",$fc,$t);
@@ -72,6 +73,10 @@ function fix_mixed_greek_latin_marc21($filename, $skip_fields, $void_fields, $ig
   mb_internal_encoding("UTF-8");
   foreach ($t[0] as $x => $text) {
 
+    if ((substr($text,3,1) != ' ' ) && ($first == 0)) {
+      if ($debug != 1) echo "\n";
+    }
+    $first = 0;
     if (array_search(substr($text,0,4),$void_fields) !== FALSE) {
       continue;
     }
@@ -109,7 +114,9 @@ function fix_mixed_greek_latin_marc21($filename, $skip_fields, $void_fields, $ig
       }
     
       if ($debug != 1) {
-        $text = preg_replace($patterns, $replacements, $text);
+        if ($i != 0 ) {
+          $text = preg_replace($patterns, $replacements, $text);
+        }
         echo "$text\n";
       }
     }
