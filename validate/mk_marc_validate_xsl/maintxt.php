@@ -63,13 +63,22 @@ if ($debug) echo "--- IND1 $ind1\n";
         if ($ind1 != '') {
           $a = $ind1;
 if ($debug) echo "--- IND1 $a\n";
-          $a = preg_replace('/.*\<\/strong\>\<br\>/','',$a);
+          $a = preg_replace('/.*\<\/strong\>\<br\s*\/*\>/','',$a);
           $b = $a."x";
           while ($b != $a) {
             $b = $a;
             $a = preg_replace('/\<em\>.*\<\/em\>/U','',$a,1);
           }
-          $a = preg_replace('/\<br\>/','@',$a);
+if ($debug) echo "--- IND1 $a\n";
+          $b = $a."x";
+          while ($b != $a) {
+            $b = $a;
+            $a = preg_replace('/\<[\/]*span.*\>/U','',$a,1);
+if ($debug) echo "--- IND1 in span $a\n";
+          }
+if ($debug) echo "--- IND1 $a\n";
+          $a = preg_replace('/\<br\s*\/*\>/','@',$a);
+if ($debug) echo "--- IND1 $a\n";
           $a = preg_replace('/@@/','@',$a);
           preg_match_all("/([@]*([^ ]*) - [^\@]*)/",$a,$m);
         }
@@ -101,13 +110,19 @@ if ($debug) echo "--- IND2 $i->innertext @\n";
         if ($ind2 != '') {
           $a = $ind2;
 if ($debug) echo "--- IND2 $a\n";
-          $a = preg_replace('/.*\<\/strong\>\<br\>/','',$a);
+          $a = preg_replace('/.*\<\/strong\>\<br\s*\/*\>/','',$a);
           $b = $a."x";
           while ($b != $a) {
             $b = $a;
             $a = preg_replace('/\<em\>.*\<\/em\>/U','',$a,1);
           }
-          $a = preg_replace('/\<br\>/','@',$a);
+          $b = $a."x";
+          while ($b != $a) {
+            $b = $a;
+            $a = preg_replace('/\<[\/]*span\>/U','',$a,1);
+if ($debug) echo "--- IND2 in span $a\n";
+          }
+          $a = preg_replace('/\<br\s*\/*\>/','@',$a);
           $a = preg_replace('/@@/','@',$a);
           preg_match_all("/([@]*([^ ]*) - [^\@]*)/",$a,$m);
         }
