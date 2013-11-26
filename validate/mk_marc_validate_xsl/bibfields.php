@@ -79,6 +79,7 @@ function setup_scf_array() {
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd258.html';
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd260.html';
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd263.html';
+  $scf[] = 'http://www.loc.gov/marc/bibliographic/bd264.html';
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd270.html';
 
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd300.html';
@@ -110,6 +111,8 @@ function setup_scf_array() {
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd382.html';
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd383.html';
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd384.html';
+  $scf[] = 'http://www.loc.gov/marc/bibliographic/bd385.html';
+  $scf[] = 'http://www.loc.gov/marc/bibliographic/bd386.html';
 
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd490.html';
 
@@ -217,6 +220,7 @@ function setup_scf_array() {
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd852.html';
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd856.html';
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd882.html';
+  $scf[] = 'http://www.loc.gov/marc/bibliographic/bd883.html';
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd887.html';
 /*
   $scf[] = 'http://www.loc.gov/marc/bibliographic/bd853.html'; // Hardcoded in tail.xs_
